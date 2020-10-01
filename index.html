@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
+
 <body>
-  
+  <div id="app">
+    <h2>{{ targets.length }}個のプロジェクトがあります</h2>
+    <div class="targets">
+      <div class="target" v-for="item in targets">
+        <h2>{{item.name}}</h2>
+        <table>
+          <tr>
+            <td>月間目標</td>
+            <td>可否</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <form class="add-form" v-on:submit.prevent="targetAdd">
+      名前<input type="text" v-model="name" placeholder="プロジェクト名を入力">
+      <button type="submit">追加</button>
+  </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="main.js"></script>
+
 </html>
